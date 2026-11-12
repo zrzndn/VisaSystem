@@ -1,115 +1,239 @@
-# VisaPath — GitHub Pages starter
+# VisaPath 🌏
 
-A static, data-driven visa and destination comparison website. Built with plain HTML, CSS and JavaScript modules so it can be hosted free on GitHub Pages and edited easily in VS Code.
+**Explore destinations. Compare opportunities. Understand your visa options.**
 
-## Included in this first release
+VisaPath is a free, data-driven visa and international migration information platform. It helps users explore international destinations, compare countries, discover visa pathways and understand immigration requirements based on their passport nationality.
 
-- Passport-origin selection: Malaysia, Indonesia and the Philippines.
-- Interface language choices: English, Bahasa Melayu, Bahasa Indonesia and Filipino. The initial language follows the selected passport unless the user chooses a language manually first.
-- Eight destination countries: United States, Canada, United Kingdom, Australia, New Zealand, Singapore, Japan and Germany.
-- Random destination order, search and sorting by available World Bank indicators.
-- A global visa explorer with filters for work, study permissions, working holiday, family, permanent residence and visit. Routes can appear in more than one filter when they allow more than one activity (for example, a Working Holiday visa may allow limited short-term study without becoming a Student visa).
-- Country detail panels with visa route summaries, nationality-check warnings, general reminders and official immigration links.
-- Live indicator retrieval from the World Bank API. The app falls back gracefully if the browser cannot reach the API.
+The platform initially focuses on eight major destinations across English-speaking and non-English-speaking countries.
 
-## Important data limitations
+> **Project status:** Early development (MVP)
 
-This is an MVP, not a complete immigration database and not legal or migration advice.
+---
 
-1. Visa-route names and summaries are a starting catalogue. Most entries still need a full, country-by-country review of eligibility, documents, fees, processing times, work/study rights, conditions, refusal grounds, cancellation rules and consequences of non-compliance.
-2. A route existing in a country does **not** mean that the selected passport is eligible. Where eligibility was verified for the three origin passports, the dataset marks it. Otherwise it explicitly asks the user to check the official nationality rules.
-3. Some visa details are date-sensitive. For example, New Zealand's capped Working Holiday allocations can close once places are filled. A status shown in this prototype is a snapshot, not a promise of future availability.
-4. The first release sorts by World Bank GDP, GDP per capita, unemployment rate, intentional homicide rate and tertiary gross enrolment. Unemployment is only a broad labour-market proxy; homicide is not the overall crime rate; tertiary enrolment is not university quality. Work-life balance is intentionally not ranked yet because a consistent, comparable measure is still needed.
-5. The interface is localised, but official visa names and many detailed visa summaries remain in English in this first release. Do not machine-translate legal wording without review.
-6. Country cards use generated landmark-style destination imagery. The images are illustrative, not official government assets or documentary photographs.
+## 🌍 Supported Countries
 
-## Run locally
+VisaPath currently covers eight destination countries:
 
-You need Node.js only if you want to use developer tooling. For the simplest local preview, Python is enough:
+| Country | Region | Primary Language |
+|---|---|---|
+| 🇺🇸 United States | North America | English |
+| 🇨🇦 Canada | North America | English / French |
+| 🇬🇧 United Kingdom | Europe | English |
+| 🇦🇺 Australia | Oceania | English |
+| 🇳🇿 New Zealand | Oceania | English |
+| 🇸🇬 Singapore | Southeast Asia | English |
+| 🇯🇵 Japan | Asia | Japanese |
+| 🇩🇪 Germany | Europe | German |
+
+### Supported Passport Nationalities
+
+- 🇲🇾 Malaysia
+- 🇮🇩 Indonesia
+- 🇵🇭 Philippines
+
+The platform is designed to support additional nationalities and destinations as the database expands.
+
+---
+
+## ✨ Key Features
+
+### 1. Nationality-Based Visa Exploration
+
+Users select their passport nationality before exploring destinations.
+
+Visa eligibility and application procedures can differ depending on nationality. VisaPath uses the selected passport to identify relevant visa routes and highlight nationality-specific restrictions.
+
+Users can also specify their country of residence and preferred interface language.
+
+### 2. Destination Comparison
+
+Explore and compare destinations using available international indicators.
+
+Current comparison categories include:
+
+- Gross Domestic Product (GDP)
+- GDP per capita
+- Unemployment rate
+- Intentional homicide rate
+- Tertiary education enrolment
+
+Destinations can be displayed in random order, searched and sorted according to the selected indicator.
+
+Comparison data is retrieved from the World Bank API.
+
+### 3. Visa Explorer
+
+Explore visa pathways across different destinations.
+
+Visa categories include:
+
+| Category | Description |
+|---|---|
+| Work | Employment and employer-sponsored visas |
+| Study | Student and education-related visas |
+| Working Holiday | Working holiday and work-and-travel schemes |
+| Family | Partner, spouse and family reunion visas |
+| Permanent Residence | Permanent residency pathways |
+| Visit | Tourism and short-term visitor visas |
+
+A visa may appear under multiple categories when its permitted activities overlap. For example, a Working Holiday visa may allow limited short-term study without being classified as a Student visa.
+
+### 4. Visa Information and Requirements
+
+Each visa entry is designed to provide relevant information, including:
+
+- Visa purpose and overview
+- Eligibility requirements
+- Nationality restrictions
+- Age requirements
+- Financial requirements
+- Required documents
+- Application procedures
+- Visa duration and fees
+- Employment and study permissions
+- Visa conditions and restrictions
+- Renewal and extension options
+- Official immigration references
+
+Visa information is organised by individual visa route rather than relying on general country-level descriptions.
+
+### 5. Official Immigration Sources
+
+VisaPath prioritises official government immigration websites as the primary sources of immigration information.
+
+Each destination includes links to its relevant immigration authority.
+
+The objective is to make immigration information easier to understand while allowing users to verify requirements directly with the responsible government agency.
+
+### 6. Multilingual Interface
+
+The interface initially supports four languages:
+
+- English
+- Bahasa Melayu
+- Bahasa Indonesia
+- Filipino
+
+Users can choose their preferred language independently of their passport nationality.
+
+---
+
+## 📊 Data Sources
+
+VisaPath uses external data sources to support destination comparisons and immigration research.
+
+| Data | Source |
+|---|---|
+| GDP | World Bank |
+| GDP per capita | World Bank |
+| Unemployment | World Bank |
+| Intentional homicide rate | World Bank |
+| Tertiary education enrolment | World Bank |
+| Immigration and visa requirements | Official government immigration authorities |
+
+For a detailed list of official immigration portals and data references, see [SOURCES.md](SOURCES.md).
+
+### Data Accuracy and Limitations
+
+Visa information is subject to frequent changes. Requirements, fees, application procedures, quotas and eligibility conditions may change without notice.
+
+This initial release is an MVP and does not represent a complete immigration database.
+
+Important limitations:
+
+1. **Visa coverage:** The initial visa catalogue provides a starting overview. Not every visa route has undergone a complete eligibility and requirements review.
+2. **Nationality eligibility:** The existence of a visa does not mean every passport nationality can apply for it. Eligibility must be verified against the official immigration authority.
+3. **Time-sensitive information:** Visa quotas, application windows, financial requirements and fees may change. Information displayed in the prototype should not be treated as a guarantee of current availability.
+4. **Comparison indicators:** Economic and social indicators are not comprehensive measures of destination quality. For example, the homicide rate is not equivalent to an overall crime rate, and tertiary enrolment does not measure university quality.
+5. **Work-life balance:** This indicator is not currently ranked because a sufficiently consistent and comparable dataset has not yet been established.
+6. **Translations:** The interface is localised, but some official visa names and detailed immigration descriptions remain in English. Legal requirements should not be machine-translated without appropriate review.
+7. **Destination imagery:** Country images are illustrative generated artwork, not official government assets or documentary photographs.
+
+**VisaPath is an independent information project. It is not affiliated with any government, embassy, immigration authority or visa application service. It does not provide legal or professional migration advice.**
+
+Users should always verify the latest requirements with the relevant official immigration authority before submitting an application or making travel arrangements.
+
+---
+
+## 🛠️ Technology Stack
+
+The project uses a lightweight static architecture to support free hosting through GitHub Pages.
+
+| Technology | Purpose |
+|---|---|
+| HTML5 | Website structure |
+| CSS3 | Styling and responsive layout |
+| JavaScript (ES Modules) | Application logic and data handling |
+| World Bank API | Economic and social indicators |
+| GitHub | Version control and source code hosting |
+| GitHub Pages | Website hosting |
+| GitHub Actions | Automated validation and deployment |
+
+No dedicated backend server or database is required for the current MVP.
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Git
+- A modern web browser
+- Python 3 for local preview
+- Node.js and npm for data validation
+
+### 1. Clone the Repository
 
 ```bash
-cd visa-pathfinder
+git clone https://github.com/zrzndn/VisaSystem.git
+```
+
+### 2. Navigate to the Project
+
+```bash
+cd VisaSystem
+```
+
+### 3. Run Locally
+
+Start a local HTTP server:
+
+```bash
 python -m http.server 8000
 ```
 
-Open `http://localhost:8000` in your browser. Do not open `index.html` directly as a file, because JavaScript modules and API requests may be blocked by the browser.
-
-## Publish on GitHub Pages
-
-1. Create a new GitHub repository, for example `visa-pathfinder`.
-2. Upload the contents of this folder to the repository root (make sure `index.html` is at the root and include the `.github` folder).
-3. Open **Settings → Pages**.
-4. Under **Build and deployment**, choose **GitHub Actions** as the deployment source.
-5. Push the files to the `main` branch. The included workflow validates the visa data and deploys the static site.
-6. Open the **Actions** tab to check the deployment status. Your published URL will appear in **Settings → Pages**.
-
-## Project layout
+Open the website:
 
 ```text
-visa-pathfinder/
-├── index.html
-├── README.md
-├── SOURCES.md
-├── VSCODE_AI_PROMPT.md
-├── package.json
-├── scripts/
-│   └── validate-data.js
-├── .github/
-│   └── workflows/
-│       └── pages.yml
-├── data/
-│   ├── countries.js
-│   ├── metrics.js
-│   └── visas.js
-└── assets/
-    ├── images/ (generated destination artwork)
-    ├── css/
-    │   └── styles.css
-    └── js/
-        ├── app.js
-        └── i18n.js
+http://localhost:8000
 ```
 
-## How to add a visa route
+Alternatively, use the Live Server extension in Visual Studio Code.
 
-Add a route object to `data/visas.js`:
+**Note:** Do not open `index.html` directly using the `file://` protocol. JavaScript modules and external API requests may not work correctly in that environment.
 
-```js
-{
-  id: "au-example-visa",
-  country: "AU",
-  name: "Example visa name",
-  categories: ["work"],
-  summary: "A short, neutral purpose summary.",
-  source: 0,
-  detailLevel: "overview"
-}
+### 4. Validate the Data
+
+Install the project dependencies:
+
+```bash
+npm install
 ```
 
-The `country` value must match a `code` in `data/countries.js`. The `source` value is the index of the relevant official source in that country's `sources` array. Use `detailLevel: "verified"` only after a human has checked the details against the official page. Add `eligibleOrigins`, `notForOrigins`, or a `nationality` field only when the official source confirms the nationality rule.
+Run the validation script:
 
-For each new route, record at least:
+```bash
+npm run validate
+```
 
-- Official route name and source URL.
-- Who can apply and nationality restrictions.
-- Age, education, occupation, sponsor/job offer and financial requirements.
-- Documents and application process.
-- Visa duration, fees and processing-time source.
-- Work/study rights and restrictions.
-- Renewal, extension, change-of-status and permanent-residence options.
-- Conditions, cancellation/refusal grounds, overstay consequences and appeal/review rights where applicable.
-- `checkedAt` date and a reviewer note (add these fields to the route object as the catalogue matures).
+This checks the visa and country data for common structural errors.
 
-## Data validation
+---
 
-Run `npm run validate` after editing the country, visa or indicator data. The check catches duplicate route IDs, missing images, invalid country references, invalid official-source indexes and unsupported categories.
+## ☁️ Deployment with GitHub Pages
 
-## Data refresh guidance
+VisaPath is designed to be hosted using GitHub Pages.
 
-The World Bank indicators are fetched when the page loads. The values are the latest non-null observations returned for the selected countries, with each observation's own year stored beside the value. The API request is not restricted to a fixed year range, so newer observations can appear as the World Bank publishes them. The ranking must always show its indicator, unit, year and limitations. Never combine unlike indicators into a single "best country" score without a published weighting model.
+To deploy:
 
-For immigration content, prefer government immigration authorities. Use the official source links in `data/countries.js` as the entry points for manual verification. Review the visa catalogue regularly and update the `checkedAt` date only after review.
-
-## Suggested VS Code AI prompt
-
-See `VSCODE_AI_PROMPT.md` for a reusable prompt that tells your coding assistant how to expand the site without inventing visa rules or breaking the data model.
+1. Push the project files to the
