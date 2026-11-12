@@ -352,9 +352,9 @@ async function loadWorldBankMetrics() {
     const newest = new Map();
     for (const row of rows) {
       if (row.value === null || row.value === undefined) continue;
-      const existing = newest.get(row.country?.id);
+      const existing = newest.get(row.countryiso3code);
       if (!existing || Number(row.date) > Number(existing.year)) {
-        newest.set(row.country?.id, { value: Number(row.value), year: Number(row.date) });
+        newest.set(row.countryiso3code, { value: Number(row.value), year: Number(row.date) });
       }
     }
     for (const country of COUNTRIES) {
