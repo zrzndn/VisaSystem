@@ -33,8 +33,6 @@ VisaPath currently covers eight destination countries:
 
 The platform is designed to support additional nationalities and destinations as the database expands.
 
----
-
 ## ✨ Key Features
 
 ### 1. Nationality-Based Visa Exploration
@@ -172,3 +170,11 @@ The project uses a lightweight static architecture to support free hosting throu
 No dedicated backend server or database is required for the current MVP.
 
 ---
+
+## Local Development
+
+Run the site locally with Python:
+
+```bash
+python -m http.server 8000
+```

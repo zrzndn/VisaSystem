@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10243b">
+  <meta name="description" content="Compare destinations and explore official visa pathways by nationality.">
+  <title>VisaPath — Explore your next destination</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script type="module" src="assets/js/app.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="VisaPath home">
+        <span class="brand-mark">V</span>
+        <span>visa<span class="brand-accent">path</span></span>
+      </a>
+      <nav class="top-nav" aria-label="Main navigation">
+        <button class="nav-link active" id="nav-discover" type="button" data-view="discover" data-i18n="navDiscover">Discover</button>
+        <button class="nav-link" id="nav-visas" type="button" data-view="visas" data-i18n="navVisaExplorer">Visa explorer</button>
+        <a class="nav-link" href="#methodology" data-i18n="navMethodology">Methodology</a>
+      </nav>
+      <div class="top-actions">
+        <label class="sr-only" for="language-select">Interface language</label>
+        <select id="language-select" class="language-select" aria-label="Interface language">
+          <option value="en">English</option>
+          <option value="ms">Bahasa Melayu</option>
+          <option value="id">Bahasa Indonesia</option>
+          <option value="fil">Filipino</option>
+        </select>
+        <button class="text-button" id="change-origin" type="button" data-i18n="changeOrigin">Change origin</button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" id="hero-section">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="eyebrow">A clearer route to your next chapter</span></div>
+          <h1 data-i18n="heroTitle">Your next country<br><em>starts here.</em></h1>
+          <p data-i18n="heroSubtitle">Compare destinations, explore visa pathways and understand the rules — with official sources at every step.</p>
+          <div class="hero-actions">
+            <button class="button button-primary" id="hero-start" type="button" data-i18n="exploreButton">Explore destinations <span aria-hidden="true">↗</span></button>
+            <span class="hero-note" data-i18n="officialNote">Built around official immigration sources</span>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="globe">🌐</div>
+          <div class="floating-card card-plane">✈️ <span>NEW ROUTES</span></div>
+          <div class="floating-card card-passport">▤ <span>YOUR PASSPORT</span></div>
+          <div class="floating-card card-pin">⌖ <span>NEW DESTINATION</span></div>
+          <div class="hero-spark spark-one">✦</div>
+          <div class="hero-spark spark-two">✧</div>
+        </div>
+      </section>
+
+      <section class="origin-banner hidden" id="origin-banner" aria-live="polite">
+        <div class="origin-left">
+          <span class="origin-flag" id="selected-origin-flag">🇲🇾</span>
+          <div><span class="muted-label" data-i18n="passportOrigin">PASSPORT ORIGIN</span><strong id="selected-origin-name">Malaysia</strong></div>
+        </div>
+        <div class="origin-explainer" data-i18n="originExplanation">Visa options and eligibility checks are shown for this passport origin.</div>
+        <button class="text-button" id="origin-edit-inline" type="button" data-i18n="change">Change</button>
+      </section>
+
+      <section class="onboarding-panel" id="onboarding-panel">
+        <div class="onboarding-heading">
+          <div class="step-label"><span>01</span> <span data-i18n="startWithPassport">START WITH YOUR PASSPORT</span></div>
+          <h2 data-i18n="originQuestion">Where are you from?</h2>
+          <p data-i18n="originHint">Choose the country that issued your passport. You can change it later.</p>
+        </div>
+        <div class="origin-options" id="origin-options">
+          <button class="origin-option" type="button" data-origin="MY"><span class="origin-option-flag">🇲🇾</span><span><strong>Malaysia</strong><small data-i18n="malaysianPassport">Malaysian passport</small></span><span class="option-arrow">↗</span></button>
+          <button class="origin-option" type="button" data-origin="ID"><span class="origin-option-flag">🇮🇩</span><span><strong>Indonesia</strong><small data-i18n="indonesianPassport">Indonesian passport</small></span><span class="option-arrow">↗</span></button>
+          <button class="origin-option" type="button" data-origin="PH"><span class="origin-option-flag">🇵🇭</span><span><strong>Philippines</strong><small data-i18n="philippinePassport">Philippine passport</small></span><span class="option-arrow">↗</span></button>
+        </div>
+        <p class="privacy-note"><span>ⓘ</span> <span data-i18n="originPrivacy">Your selection is used only to tailor this page. This demo does not collect passport numbers or personal documents.</span></p>
+      </section>
+
+      <div id="main-content" class="hidden">
+        <section class="section-block discover-view" id="discover-view">
+          <div class="section-heading section-heading-row">
+            <div>
+              <div class="step-label"><span>02</span> <span data-i18n="discoverStep">DISCOVER YOUR OPTIONS</span></div>
+              <h2 data-i18n="destinationsTitle">Where would you like to go?</h2>
+              <p data-i18n="destinationsSubtitle">Explore the destinations, then compare them using a measure that matters to you.</p>
+            </div>
+            <div class="destination-count"><strong>08</strong><span data-i18n="destinationsCount">DESTINATIONS</span></div>
+          </div>
+
+          <div class="toolbar">
+            <label class="search-box"><span aria-hidden="true">⌕</span><input id="country-search" type="search" placeholder="Search a country..." data-i18n-placeholder="searchCountry"></label>
+            <div class="sort-control">
+              <label for="sort-select" data-i18n="sortBy">Sort by</label>
+              <select id="sort-select">
+                <option value="random" data-i18n="randomOrder">Random order</option>
+                <option value="gdp" data-i18n="sortGdp">GDP — economy size</option>
+                <option value="gdpPerCapita" data-i18n="sortGdpPerCapita">GDP per capita</option>
+                <option value="unemployment" data-i18n="sortWork">Unemployment rate (work proxy)</option>
+                <option value="homicide" data-i18n="sortCrime">Intentional homicide rate (safety proxy)</option>
+                <option value="tertiary" data-i18n="sortStudy">Tertiary enrolment (study access proxy)</option>
+                <option value="workLife" disabled data-i18n="sortWorkLife">Work-life balance — dataset pending</option>
+              </select>
+              <span class="sort-direction" id="sort-direction-wrap"><select id="sort-direction" aria-label="Sort direction"><option value="desc" data-i18n="highestFirst">Highest first</option><option value="asc" data-i18n="lowestFirst">Lowest first</option></select></span>
+            </div>
+          </div>
+          <div class="metric-note" id="metric-note"><span class="metric-pulse"></span><span>Comparison indicators load from the World Bank when available. Values use each indicator's latest available year.</span></div>
+          <div class="country-grid" id="country-grid" aria-live="polite"></div>
+          <div class="empty-state hidden" id="country-empty">No destinations match your search.</div>
+        </section>
+
+        <section class="section-block visa-explorer-view hidden" id="visa-explorer-view">
+          <div class="section-heading">
+            <div class="step-label"><span>03</span> <span data-i18n="visaExplorerStep">BROWSE VISA ROUTES</span></div>
+            <h2 data-i18n="visaExplorerTitle">Find a visa by purpose.</h2>
+            <p data-i18n="visaExplorerSubtitle">Compare work, study, working holiday, family and settlement routes across all destinations.</p>
+          </div>
+          <div class="visa-toolbar">
+            <label class="search-box"><span aria-hidden="true">⌕</span><input id="visa-search" type="search" placeholder="Search visa name or country..."></label>
+            <div class="filter-chips" id="global-filters">
+              <button class="filter-chip selected" type="button" data-filter="all" data-i18n="allRoutes">All routes</button>
+              <button class="filter-chip" type="button" data-filter="work" data-i18n="work">Work</button>
+              <button class="filter-chip" type="button" data-filter="study" data-i18n="study">Study</button>
+              <button class="filter-chip" type="button" data-filter="working-holiday" data-i18n="workingHoliday">Working holiday</button>
+              <button class="filter-chip" type="button" data-filter="family" data-i18n="family">Family</button>
+              <button class="filter-chip" type="button" data-filter="residence" data-i18n="residence">Permanent residence</button>
+              <button class="filter-chip" type="button" data-filter="visit" data-i18n="visit">Visit</button>
+            </div>
+          </div>
+          <div class="global-visa-list" id="global-visa-list"></div>
+        </section>
+
+        <section class="methodology section-block" id="methodology">
+          <div class="methodology-icon">◎</div>
+          <div>
+            <div class="step-label">TRANSPARENCY FIRST</div>
+            <h2 data-i18n="methodologyTitle">A ranking is a starting point, not a promise.</h2>
+            <p data-i18n="methodologyText">Economic and safety indicators describe countries, not your personal visa eligibility or chance of getting a job. Every visa route must be checked against the official immigration authority for your passport and circumstances.</p>
+            <div class="methodology-links">
+              <a href="https://data.worldbank.org/" target="_blank" rel="noopener noreferrer">World Bank data ↗</a>
+              <a href="https://dataunodc.un.org/" target="_blank" rel="noopener noreferrer">UNODC data ↗</a>
+              <a href="https://www.oecd.org/en/data/" target="_blank" rel="noopener noreferrer">OECD data ↗</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <a class="brand footer-brand" href="#top"><span class="brand-mark">V</span><span>visa<span class="brand-accent">path</span></span></a>
+      <p>Independent research tool · Not an immigration authority or legal adviser.</p>
+      <span>Prototype · <span id="footer-year">2026</span></span>
+    </footer>
+  </div>
+
+  <div class="modal-backdrop hidden" id="country-modal" role="presentation">
+    <section class="country-modal" role="dialog" aria-modal="true" aria-labelledby="modal-country-name">
+      <button class="modal-close" id="modal-close" type="button" aria-label="Close">×</button>
+      <div id="modal-content"></div>
+    </section>
+  </div>
+
+  <div class="toast hidden" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
