@@ -21,7 +21,9 @@ export const COUNTRIES = [
     sources: [
       { label: "IRCC — Work in Canada", url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada.html" },
       { label: "IRCC — Study in Canada", url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada.html" },
-      { label: "IRCC — Immigration and citizenship", url: "https://www.canada.ca/en/immigration-refugees-citizenship.html" }
+      { label: "IRCC — Immigration and citizenship", url: "https://www.canada.ca/en/immigration-refugees-citizenship.html" },
+      { label: "IRCC — Express Entry", url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry.html" },
+      { label: "IRCC — Sponsor your family members", url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/family-sponsorship.html" }
     ],
     generalRules: ["Work permits may be employer-specific or open; open permits are limited to eligible situations.", "A study permit is not itself a guarantee of entry; travel documents and entry requirements still apply.", "Permit conditions can restrict work, study, employer or duration."]
   },
@@ -45,7 +47,8 @@ export const COUNTRIES = [
       { label: "Department of Home Affairs — Working Holiday Maker program", url: "https://immi.homeaffairs.gov.au/what-we-do/whm-program" },
       { label: "Department of Home Affairs — Working Holiday subclass 417", url: "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/work-holiday-417/first-working-holiday-417" },
       { label: "Department of Home Affairs — WHM work and study conditions", url: "https://immi.homeaffairs.gov.au/what-we-do/whm-program/specified-work-conditions" },
-      { label: "Department of Home Affairs — 462 country cap status", url: "https://immi.homeaffairs.gov.au/what-we-do/whm-program/status-of-country-caps" }
+      { label: "Department of Home Affairs — 462 country cap status", url: "https://immi.homeaffairs.gov.au/what-we-do/whm-program/status-of-country-caps" },
+      { label: "Department of Home Affairs — Student visa (subclass 500)", url: "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500" }
     ],
     generalRules: ["You must hold a visa that permits the activity you intend to undertake.", "Visa conditions can limit employer, work type, study duration or stay period.", "Check the grant notice and Visa Entitlement Verification Online (VEVO) for your personal conditions."]
   },

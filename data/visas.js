@@ -2,8 +2,8 @@
 // Every route must be rechecked against its official source before production use.
 export const VISA_ROUTES = [
   // United States
-  { id:"us-f1", country:"US", name:"F-1 Academic Student", categories:["study"], summary:"For academic study at a school or institution authorised to enrol international students.", source:0, detailLevel:"overview" },
-  { id:"us-m1", country:"US", name:"M-1 Vocational Student", categories:["study"], summary:"For eligible vocational or non-academic study programmes.", source:0, detailLevel:"overview" },
+  { id:"us-f1", country:"US", name:"F-1 Academic Student", categories:["study"], summary:"For academic study at a school or institution authorised to enrol international students.", source:2, detailLevel:"overview" },
+  { id:"us-m1", country:"US", name:"M-1 Vocational Student", categories:["study"], summary:"For eligible vocational or non-academic study programmes.", source:2, detailLevel:"overview" },
   { id:"us-j1", country:"US", name:"J-1 Exchange Visitor", categories:["study","work"], summary:"For approved exchange visitor programmes, which may include study, research, training or other exchange activities.", source:0, detailLevel:"overview" },
   { id:"us-h1b", country:"US", name:"H-1B Specialty Occupations", categories:["work"], summary:"For qualifying specialty-occupation employment, generally involving an employer petition.", source:1, detailLevel:"overview" },
   { id:"us-l1", country:"US", name:"L-1 Intracompany Transferee", categories:["work"], summary:"For qualifying transfers to a US office of an organisation with a related overseas operation.", source:1, detailLevel:"overview" },
@@ -16,8 +16,8 @@ export const VISA_ROUTES = [
   { id:"ca-employer-work", country:"CA", name:"Employer-specific Work Permit", categories:["work"], summary:"Authorises work for the employer and under the conditions stated on the permit. A job offer and, in many cases, an LMIA may be relevant.", source:0, detailLevel:"overview" },
   { id:"ca-open-work", country:"CA", name:"Open Work Permit", categories:["work"], summary:"Allows eligible applicants to work for most compliant employers. It is available only in specified circumstances.", source:0, detailLevel:"overview" },
   { id:"ca-iec", country:"CA", name:"International Experience Canada (IEC)", categories:["work","working-holiday"], summary:"Youth mobility programme with Working Holiday, Young Professionals and International Co-op categories for participating nationalities. Check whether your passport is covered.", source:0, detailLevel:"overview" },
-  { id:"ca-express-entry", country:"CA", name:"Express Entry", categories:["residence","work"], summary:"An online system managing applications for several economic immigration programmes. Eligibility and invitations depend on the applicable programme and selection rounds.", source:2, detailLevel:"overview" },
-  { id:"ca-family", country:"CA", name:"Family sponsorship", categories:["family","residence"], summary:"Allows eligible Canadian citizens and permanent residents to sponsor certain family members.", source:2, detailLevel:"overview" },
+  { id:"ca-express-entry", country:"CA", name:"Express Entry", categories:["residence","work"], summary:"An online system managing applications for several economic immigration programmes. Eligibility and invitations depend on the applicable programme and selection rounds.", source:3, detailLevel:"overview" },
+  { id:"ca-family", country:"CA", name:"Family sponsorship", categories:["family","residence"], summary:"Allows eligible Canadian citizens and permanent residents to sponsor certain family members.", source:4, detailLevel:"overview" },
   { id:"ca-visitor", country:"CA", name:"Visitor Visa / eTA", categories:["visit"], summary:"The travel authorisation required depends on nationality, travel document and method of arrival.", source:2, detailLevel:"overview" },
 
   // United Kingdom
@@ -30,8 +30,79 @@ export const VISA_ROUTES = [
   { id:"uk-visitor", country:"GB", name:"Standard Visitor", categories:["visit"], summary:"For eligible visits such as tourism, visiting family or certain business activities. Work is generally not permitted.", source:0, detailLevel:"overview" },
 
   // Australia
-  { id:"au-student", country:"AU", name:"Student visa (subclass 500)", categories:["study"], summary:"For eligible students enrolled in a registered course, subject to student visa requirements and conditions.", source:0, detailLevel:"overview" },
-  { id:"au-462", country:"AU", name:"Work and Holiday (subclass 462)", categories:["work","working-holiday","study"], summary:"A 12-month Working Holiday Maker visa for eligible passport holders. It permits short-term work and study for up to four months; eligibility and additional requirements depend on nationality.", source:1, detailLevel:"verified", checkedAt:"2026-11-12", eligibleOrigins:["MY","ID"], notForOrigins:["PH"], originNote:"Philippine passports are not included in the subclass 462 eligible-country list checked for this release.", originNotes:{MY:"Malaysia is on the subclass 462 passport list. Malaysian applicants need a Good Conduct Certificate under the current official instructions.",ID:"Indonesia is on the subclass 462 passport list. A first-visa ballot arrangement was announced for Indonesian applicants; verify the current registration and selection process before applying."}, statusLabelByOrigin:{MY:"Open — 1,100 places",ID:"Ballot status to check"}, details:[{title:"Passport eligibility",items:["The first subclass 462 list includes Malaysian and Indonesian passports. Philippine passports are not included in the current list.","The country-cap page checked on 12 November 2026 showed Malaysia as open with a cap of 1,100. Indonesia had a 5,000 cap and was marked for ballot-status checking; registrations were expected to open later in 2026, with the date to be confirmed.","Applicants from Malaysia and Indonesia must also meet the nationality-specific requirements for this route."]},{title:"What the visa permits",items:["Stay in Australia for up to 12 months on the first visa.","Undertake short-term work and study for up to four months. Condition 8548 applies to both subclass 417 and 462."]},{title:"Work conditions",items:["Usually, work for the same employer is limited to six months under condition 8547, subject to exceptions and the conditions on the individual grant.","Check the visa grant notice and VEVO before relying on any work entitlement."]},{title:"Nationality-specific notes",items:["Malaysian applicants need a Good Conduct Certificate under the current official instructions.","The official country-cap page showed Malaysia open with 1,100 places when checked on 12 November 2026.","Indonesia is subject to a first-visa ballot arrangement. The official page showed a 5,000 cap and said registration was expected to open later in 2026; check the latest ballot status before applying.","The page lists funds of usually AUD 5,000 for the initial stay plus a ticket or funds to leave Australia. Applicants must meet the education, English, health and character requirements that apply to their country.","Applicants must be 18–30 inclusive, apply from outside Australia and must not be accompanied by dependent children."]}] },
+  { id:"au-student", country:"AU", name:"Student visa (subclass 500)", categories:["study"], summary:"For eligible students enrolled in a registered course, subject to student visa requirements and conditions.", source:6, detailLevel:"overview" },
+  {
+    id:"au-462",
+    country:"AU",
+    name:"Work and Holiday (subclass 462)",
+    categories:["work","working-holiday","study"],
+    summary:"A Working Holiday Maker visa for eligible passport holders. The first visa can allow a stay of up to 12 months; work, study, eligibility and application arrangements depend on the visa conditions and passport country.",
+    source:1,
+    detailLevel:"verified",
+    checkedAt:"2026-11-13",
+    eligibleOrigins:["MY","ID"],
+    notForOrigins:["PH"],
+    originNote:"Philippine passports are not included in the subclass 462 eligible-country list checked for this release.",
+    originNotes:{
+      MY:"Malaysia is on the subclass 462 passport list. The official page checked on 13 November 2026 showed its first-visa cap as open with 1,100 places. Malaysian applicants need a Good Conduct Certificate under the current official instructions.",
+      ID:"Indonesia is on the subclass 462 passport list. The official page checked on 13 November 2026 showed a 5,000-place cap and instructed applicants to check ballot status."
+    },
+    statusLabelByOrigin:{MY:"Open — 1,100 places",ID:"Ballot status to check"},
+    details:[
+      {
+        title:"Passport and core eligibility",
+        items:[
+          "The subclass 462 route includes Malaysian and Indonesian passports. Philippine passports are not included in the eligible-country list checked for this release.",
+          "Applicants from Malaysia and Indonesia must be aged 18–30 inclusive and apply from outside Australia for the first visa.",
+          "Applicants must not be accompanied by dependent children.",
+          "Additional requirements vary by passport country and can include education, English, health and character criteria. Check the current country-specific instructions before applying.",
+          "Malaysian applicants need a Good Conduct Certificate under the current official instructions."
+        ]
+      },
+      {
+        title:"Funds and travel",
+        items:[
+          "Applicants generally need access to at least AUD 5,000 for their stay, plus a ticket out of Australia or enough funds to buy one.",
+          "The Department may require evidence that you meet the financial and other eligibility requirements."
+        ]
+      },
+      {
+        title:"Country cap and ballot status",
+        items:[
+          "The country-cap page checked on 13 November 2026 showed Malaysia as open with an annual first-visa cap of 1,100.",
+          "Indonesia had an annual cap of 5,000 and was marked CHECK BALLOT STATUS. The page said ballot registration was expected to open later in 2026, with the opening date to be confirmed.",
+          "For capped countries, applications generally open each program year on 2 July (Australian Eastern Standard Time). A paused cap may reopen; a closed cap will not reopen until the next program year.",
+          "Cap information can take up to 48 hours to reflect changes. Check the Department's live country-cap and ballot pages immediately before applying."
+        ]
+      },
+      {
+        title:"Stay, work and study",
+        items:[
+          "The first subclass 462 visa can allow a stay in Australia of up to 12 months.",
+          "Work is permitted in any occupation or industry, subject to visa conditions and Australian workplace laws.",
+          "Condition 8547 generally limits work with one employer to six months. Some exemptions apply, and permission may be requested to work longer; follow the current Department process and the conditions on your visa.",
+          "Condition 8548 limits study or training to four months on each subclass 462 visa. Some online or correspondence courses and workplace-based training are treated differently under the official rules."
+        ]
+      },
+      {
+        title:"Second and third Working Holiday Maker visas",
+        items:[
+          "Specified work may help you qualify for a second or third subclass 462 visa. The qualifying work, locations and evidence rules are set by the Department and can change.",
+          "The Department states that second and third subclass 462 visas do not have country application caps. You must still meet the applicable visa criteria.",
+          "Check the official specified-work rules before accepting work for the purpose of qualifying for another visa."
+        ]
+      },
+      {
+        title:"Application checks and after grant",
+        items:[
+          "Check the subclass 462 country list, passport-specific criteria, cap or ballot status, and current application instructions before lodging.",
+          "Indonesia's first-visa process is ballot-based; check the Department's latest ballot instructions rather than assuming applications are open.",
+          "Read your grant notice and check your personal visa conditions in Visa Entitlement Verification Online (VEVO) before working or studying.",
+          "Working Holiday Makers have the same workplace rights and protections as other workers in Australia, regardless of citizenship or visa status."
+        ]
+      }
+    ]
+  },
   { id:"au-417", country:"AU", name:"Working Holiday (subclass 417)", categories:["work","working-holiday","study"], summary:"A 12-month Working Holiday Maker visa for eligible passport holders. It permits short-term work and study for up to four months; only specified passport countries qualify.", source:3, detailLevel:"verified", checkedAt:"2026-11-12", notForOrigins:["MY","ID","PH"], originNote:"The selected Malaysian, Indonesian and Philippine passports are not included in the subclass 417 eligible-country list checked for this release. Malaysia and Indonesia instead appear on the subclass 462 list.", details:[{title:"Passport eligibility",items:["The subclass 417 route is limited to its listed partner passports.","The Malaysian, Indonesian and Philippine passports selected in this prototype are not on the eligible-country list checked for this release."]},{title:"What the visa permits",items:["The first visa can allow a stay of up to 12 months.","Holders can undertake short-term work and study for up to four months. Condition 8548 applies to both subclass 417 and 462.","Usually, work for the same employer is limited to six months, subject to conditions and exceptions."]}] },
   { id:"au-482", country:"AU", name:"Skills in Demand visa (subclass 482)", categories:["work"], summary:"A sponsored temporary work route for eligible skilled workers nominated by an approved employer.", source:0, detailLevel:"overview" },
   { id:"au-189", country:"AU", name:"Skilled Independent visa (subclass 189)", categories:["work","residence"], summary:"A points-tested permanent skilled migration pathway for eligible invited applicants.", source:0, detailLevel:"overview" },

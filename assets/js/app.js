@@ -48,6 +48,12 @@ function setLocale(locale) {
   if (state.selectedCountry) renderCountryModal();
 }
 
+function setTextScale(value) {
+  const scale = Number(value);
+  if (![0.9, 1, 1.15].includes(scale)) throw new RangeError("Unsupported text scale.");
+  document.documentElement.style.setProperty("--text-scale", String(scale));
+}
+
 function setOrigin(code) {
   const origin = ORIGINS.find((item) => item.code === code);
   if (!origin) return;
@@ -189,6 +195,12 @@ function categoryLabel(category) {
   return localized[category] || CATEGORY_LABELS[category] || category;
 }
 
+function routeReviewLabel(route) {
+  return route.detailLevel === "verified"
+    ? `${t("verifiedDetail")} · ${route.checkedAt}`
+    : t("overviewOnly");
+}
+
 function countryRouteSource(country, route) {
   return country.sources[route.source] || country.sources[0];
 }
@@ -226,6 +238,7 @@ function renderCountryModal() {
         <div class="modal-visa-meta">
           ${route.categories.map((category) => `<span class="category-tag">${categoryLabel(category)}</span>`).join("")}
           <span class="eligibility-tag">${status.label}</span>
+          <span class="review-tag ${route.detailLevel}">${routeReviewLabel(route)}</span>
         </div>
         <div class="modal-card-action"><span></span><button type="button" data-visa="${route.id}">View details →</button></div>
       </article>`;
@@ -234,7 +247,7 @@ function renderCountryModal() {
   $("#modal-content").innerHTML = `
     <div class="modal-hero ${country.tone}" style="background-image: linear-gradient(90deg, rgba(12,31,48,.91), rgba(12,31,48,.35)), url('${country.image}'); background-size: cover; background-position: center;">
       <div class="modal-hero-copy">
-        <div class="country-modal-flag">${country.flag} <span style="font-size:10px;letter-spacing:1px;color:#b9d4dc">${country.region.toUpperCase()}</span></div>
+        <div class="country-modal-flag">${country.flag} <span class="modal-region">${country.region.toUpperCase()}</span></div>
         <h2 id="modal-country-name">${country.name}</h2>
         <p>${country.landmarkName} · ${country.language}</p>
       </div>
@@ -252,7 +265,7 @@ function renderCountryModal() {
       <div class="country-rules">${country.generalRules.map((rule) => `<div class="rule-item">${rule}</div>`).join("")}</div>
       <div class="modal-section-title"><span>${t("sourceList")}</span></div>
       <div class="source-list">${country.sources.map((item) => `<a class="source-link" href="${item.url}" target="_blank" rel="noopener noreferrer">${item.label}</a>`).join("")}</div>
-      <p class="modal-footnote">${t("sourceChecked")}. ${t("routeNote")} ${t("noPicture")}</p>
+      <p class="modal-footnote">${t("sourceChecked")} ${t("routeNote")} ${t("noPicture")}</p>
     </div>`;
   $$('[data-country-filter]', $("#modal-content")).forEach((button) => button.addEventListener("click", () => {
     state.selectedCountryFilter = button.dataset.countryFilter;
@@ -317,7 +330,7 @@ function renderGlobalVisas() {
     const status = routeOriginStatus(route);
     return `<article class="global-visa-item">
       <div class="global-visa-flag">${country.flag}</div>
-      <div class="global-visa-copy"><strong>${route.name}</strong><small>${country.name} · ${route.categories.map(categoryLabel).join(" · ")}</small><p>${route.summary}</p><p><strong>Passport check:</strong> ${status.label}</p></div>
+      <div class="global-visa-copy"><strong>${route.name}</strong><small>${country.name} · ${route.categories.map(categoryLabel).join(" · ")}</small><p>${route.summary}</p><p class="review-copy"><strong>${routeReviewLabel(route)}</strong></p><p><strong>Passport check:</strong> ${status.label}</p></div>
       <button type="button" data-global-country="${country.code}" data-global-visa="${route.id}">Explore →</button>
     </article>`;
   }).join("");
@@ -396,6 +409,7 @@ function init() {
     }
   });
   $("#language-select").addEventListener("change", (event) => { state.localeExplicit = true; setLocale(event.target.value); });
+  $("#text-size-select").addEventListener("change", (event) => setTextScale(event.target.value));
   $("#country-search").addEventListener("input", (event) => { state.searchCountry = event.target.value; renderCountries(); });
   $("#sort-select").addEventListener("change", (event) => {
     state.sort = event.target.value;

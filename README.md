@@ -147,6 +147,8 @@ Important limitations:
 6. **Translations:** The interface is localised, but some official visa names and detailed immigration descriptions remain in English. Legal requirements should not be machine-translated without appropriate review.
 7. **Destination imagery:** Country images are illustrative generated artwork, not official government assets or documentary photographs.
 
+Each route is labelled `overview` or `verified`. A verified route must include structured details and its own `checkedAt` date; the data validator enforces that metadata, but cannot confirm the truth or current validity of a claim on an external government page. Review dates are shown only for routes checked individually.
+
 **VisaPath is an independent information project. It is not affiliated with any government, embassy, immigration authority or visa application service. It does not provide legal or professional migration advice.**
 
 Users should always verify the latest requirements with the relevant official immigration authority before submitting an application or making travel arrangements.

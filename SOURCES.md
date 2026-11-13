@@ -1,6 +1,6 @@
 # Official and statistical sources used for the prototype
 
-Last checked: 12 November 2026. Individual visa rules can change; check each official page before relying on it.
+Source catalogue checked: 12 November 2026; selected route-specific links reviewed on 13 November 2026. Individual visa rules can change; check each official page before relying on it.
 
 ## Immigration sources
 
@@ -10,9 +10,12 @@ Last checked: 12 November 2026. Individual visa rules can change; check each off
 | United States | [USCIS — Working in the United States](https://www.uscis.gov/working-in-the-united-states) | Employment-based route information |
 | Canada | [IRCC — Work in Canada](https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada.html) | Employer-specific and open work permits |
 | Canada | [IRCC — Study in Canada](https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada.html) | Study permit starting point |
+| Canada | [IRCC — Express Entry](https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry.html) | Express Entry programmes, process and current application information |
+| Canada | [IRCC — Sponsor your family members](https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/family-sponsorship.html) | Family sponsorship route starting point |
 | United Kingdom | [GOV.UK — Visas and immigration](https://www.gov.uk/browse/visas-immigration) | Official visa and immigration categories |
 | United Kingdom | [GOV.UK — Youth Mobility Scheme eligibility](https://www.gov.uk/youth-mobility/eligibility) | Nationality and age eligibility |
 | Australia | [Department of Home Affairs — Visa list](https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing) | Full visa catalogue |
+| Australia | [Department of Home Affairs — Student visa (subclass 500)](https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500) | Student visa information and conditions |
 | Australia | [Department of Home Affairs — First Work and Holiday subclass 462](https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/work-holiday-462/first-work-holiday-462/) | Nationality, age and specific application requirements |
 | Australia | [Department of Home Affairs — Working Holiday Maker programme](https://immi.homeaffairs.gov.au/what-we-do/whm-program) | Working Holiday programme structure |
 | Australia | [Department of Home Affairs — WHM work and study conditions](https://immi.homeaffairs.gov.au/what-we-do/whm-program/specified-work-conditions) | Study condition 8548 and work condition 8547 |
